@@ -7,7 +7,7 @@ namespace main
     {
         static void Main()
         {
-            //Умовні інструкції
+            //Task1 
             Console.Write("Введіть рік: ");
 
             int week =  Convert.ToInt32(Console.ReadLine());
@@ -19,7 +19,7 @@ namespace main
             
 
 
-            
+            //Task2
             Console.Write("Введіть число: ");
             int num = Convert.ToInt32(Console.ReadLine());
             for(int i = 1; i <= num;i ++)
@@ -31,7 +31,8 @@ namespace main
                Console.WriteLine(spaces + numbers);
             }
            
-            Console.Write("enter an expression: ");
+            //Task4
+            Console.Write("Введіть вираз: ");
                 string input = Console.ReadLine();
  
                 DataTable table = new DataTable();
@@ -42,54 +43,63 @@ namespace main
                 Console.WriteLine(name);
 
 
+                Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-                 Console.OutputEncoding = System.Text.Encoding.UTF8;
-            
+
+            //Task3
             int score = 0;
 
-            // --- Питання 1 ---
-            Console.WriteLine("Питання 1: Скільки днів у тижні?");
-            Console.WriteLine("1. 7");
-            Console.WriteLine("2. 5");
-            Console.WriteLine("3. 10");
-            Console.WriteLine("4. 12");
-            Console.Write("Ваша відповідь: ");
             
-            string answer1 = Console.ReadLine();
+            string[] questions = {
+                "Питання 1. які кольори у прапору України?",
+                "Питання 2. в якому місті знаходиться ДТЕУ?",
+                "Питання 3. Яка найбільша планета Сонячної системи?",
+                "Питання 4. Скільки днів у високосному році?",
+                "Питання 5. Яка мова програмування використовується для цього коду?"
+            };
 
-            if (answer1 == "1")
-            {
-                Console.WriteLine("Correct answer");
-                score += 100;
-            }
-            else
-            {
-                Console.WriteLine("Wrong Answer");
-            }
-            Console.WriteLine($"Current User Score: {score}\n");
-
-            // --- Питання 2 ---
-            Console.WriteLine("Питання 2, в якому місті знаходиться ДТЕУ?");
-            Console.WriteLine("1. Вінниця");
-            Console.WriteLine("2. Київ");
-            Console.WriteLine("3. Львів");
-            Console.WriteLine("4. Одеса");
-            Console.Write("Ваша відповідь: ");
             
-            string answer2 = Console.ReadLine();
+            string[,] options = {
+                { "1.жовтий і блакитний", "2.червоний і зелений", "3.чорний і жовтий", "4.зелений і фіолетовий" },
+                { "1.Винниця", "2.Київ", "3.Львів", "4.Одеса" },
+                { "1.Земля", "2.Марс", "3.Юпітер", "4.Сатурн" },
+                { "1.364", "2.365", "3.366", "4.367" },
+                { "1.Python", "2.Java", "3.C++", "4.C#" }
+            };
 
-            if (answer2 == "2") // Правильна відповідь — Київ (варіант 2)
-            {
-                Console.WriteLine("Correct answer");
-                score += 100;
-            }
-            else
-            {
-                Console.WriteLine("Wrong Answer");
-            }
-            Console.WriteLine($"Current User Score: {score}\n");
+            
+            int[] correctAnswers = { 1, 2, 3, 3, 4 };
 
-            Console.WriteLine("кінець програми.");
+            for (int i = 0; i < questions.Length; i++)
+            {
+                Console.WriteLine($"Current User Score: {score}");
+                Console.WriteLine(questions[i]);
+
+             
+                for (int j = 0; j < 4; j++)
+                {
+                    Console.WriteLine(options[i, j]);
+                }
+
+                Console.Write("Ваша відповідь (1-4): ");
+                string inputs = Console.ReadLine();
+
+              
+                if (int.TryParse(inputs, out int userAnswer) && userAnswer == correctAnswers[i])
+                {
+                    Console.WriteLine("Correct answer");
+                    score += 100; 
+                }
+                else
+                {
+                    Console.WriteLine("Wrong Answer");
+                    Console.WriteLine("кінець програми.");
+                    return; 
+                }
+            }
+
+            Console.WriteLine($"Current User Score: {score}");
+            Console.WriteLine("Вітаємо! Ви відповіли на всі питання. Кінець програми.");
            
         }
         
