@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Data;
 
 namespace main
 {
@@ -31,8 +31,17 @@ namespace main
                Console.WriteLine(spaces + numbers);
             }
            
-            
+            Console.Write("enter an expression: ");
+                string input = Console.ReadLine();
+ 
+                DataTable table = new DataTable();
+                var result = table.Compute(input, "");
+
+                int name = Convert.ToInt32(result);
+        
+                Console.WriteLine(name);
            
         }
+        
     }
 }   
