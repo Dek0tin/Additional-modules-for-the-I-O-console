@@ -40,6 +40,56 @@ namespace main
                 int name = Convert.ToInt32(result);
         
                 Console.WriteLine(name);
+
+
+
+                 Console.OutputEncoding = System.Text.Encoding.UTF8;
+            
+            int score = 0;
+
+            // --- Питання 1 ---
+            Console.WriteLine("Питання 1: Скільки днів у тижні?");
+            Console.WriteLine("1. 7");
+            Console.WriteLine("2. 5");
+            Console.WriteLine("3. 10");
+            Console.WriteLine("4. 12");
+            Console.Write("Ваша відповідь: ");
+            
+            string answer1 = Console.ReadLine();
+
+            if (answer1 == "1")
+            {
+                Console.WriteLine("Correct answer");
+                score += 100;
+            }
+            else
+            {
+                Console.WriteLine("Wrong Answer");
+            }
+            Console.WriteLine($"Current User Score: {score}\n");
+
+            // --- Питання 2 ---
+            Console.WriteLine("Питання 2, в якому місті знаходиться ДТЕУ?");
+            Console.WriteLine("1. Вінниця");
+            Console.WriteLine("2. Київ");
+            Console.WriteLine("3. Львів");
+            Console.WriteLine("4. Одеса");
+            Console.Write("Ваша відповідь: ");
+            
+            string answer2 = Console.ReadLine();
+
+            if (answer2 == "2") // Правильна відповідь — Київ (варіант 2)
+            {
+                Console.WriteLine("Correct answer");
+                score += 100;
+            }
+            else
+            {
+                Console.WriteLine("Wrong Answer");
+            }
+            Console.WriteLine($"Current User Score: {score}\n");
+
+            Console.WriteLine("кінець програми.");
            
         }
         
